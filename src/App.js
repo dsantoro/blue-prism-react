@@ -10,7 +10,7 @@ import light from "./themes/light";
 import dark from "./themes/dark";
 
 import { Container } from "./components/Container";
-import { GridContainer } from "./App.styles";
+import { GridContainer, CardWrapper } from "./App.styles";
 import { Title } from "./components/Title";
 import Card from "./components/Card";
 import SkeletonCard from "./components/Card/Skeleton";
@@ -105,6 +105,7 @@ function App() {
               }}
             />
 
+            <CardWrapper>
             {schedules.isLoading
               ? [1, 2, 3].map((index) => <SkeletonCard key={index} />)
               : schedules.data.map((item) => {
@@ -120,6 +121,8 @@ function App() {
                     />
                   );
                 })}
+            </CardWrapper>
+            
           </div>
           <div>
             <DataTable

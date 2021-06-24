@@ -7,7 +7,7 @@ export const CardButton = styled.a`
   color: white;
   padding: 0.5rem;
   border-radius: 4px;
-  min-width: 110px;
+  min-width: 120px;
   justify-content: center;
   text-transform: uppercase;
   cursor: pointer;

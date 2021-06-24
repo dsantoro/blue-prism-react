@@ -5,15 +5,21 @@ export const Container = styled.a`
   border-radius: 6px;
   background: ${({ theme }) => theme.colors.secondary};
   border: ${({ theme }) => `1px solid ${theme.colors.text}`};
-  width: auto;
   display: flex;
   padding: 1rem;
   flex-direction: column;
-  margin-right: 1rem;
   cursor: pointer;
+  margin-right: 1rem;
+  width: 300px;
 
-  &:not(:last-of-type) {
-    margin-bottom: 1rem;
+  @media (min-width: 600px) {
+    margin-right: 1rem;
+    margin-left: 0;
+    width: auto;
+
+    &:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
   }
 `;
 
@@ -41,6 +47,7 @@ export const CardHeader = styled.header`
   h5,
   h6 {
     color: ${({ theme }) => theme.colors.primary};
+    white-space: nowrap;
     font-weight: 400;
     margin: 0;
   }
@@ -58,6 +65,19 @@ export const CardBody = styled.main`
 export const CardFooter = styled.footer`
   align-items: center;
   display: flex;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+
+    > div {
+      margin-right: 0 !important;
+      margin-bottom: 1rem;
+    }
+
+    > object {
+      width: 100%;
+    }
+  }
 
   span {
     font-weight: 400;
