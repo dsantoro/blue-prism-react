@@ -9,11 +9,13 @@ import { AppStateContext } from "./context/App";
 import light from "./themes/light";
 import dark from "./themes/dark";
 
-import { Container } from "./components/Container";
 import { GridContainer, CardWrapper } from "./App.styles";
+import { Container } from "./components/Container";
 import { Title } from "./components/Title";
 import Card from "./components/Card";
 import SkeletonCard from "./components/Card/Skeleton";
+import NoData from "./components/NoData";
+import LoaderTable from "./components/LoaderTable";
 import Filter from "./components/Filter";
 import Header from "./components/Header";
 
@@ -87,7 +89,7 @@ function App() {
       startTime: format(parseISO(item.startTime), "MM/dd/yyyy"),
       endTime: format(parseISO(item.endTime), "MM/dd/yyyy")
     }));
-    setSchedulesLogs({ isLoadingLogs: true, dataLogs: formatedData });
+    setSchedulesLogs({ isLoadingLogs: false, dataLogs: formatedData });
   };
 
   return (
@@ -128,11 +130,13 @@ function App() {
             <DataTable
               columns={columns}
               data={schedulesLogs?.dataLogs}
-              noDataComponent={<h1>No data to show!</h1>}
+              noDataComponent={<NoData />}
+              progressComponent={<LoaderTable />}
               highlightOnHover
               striped
               noHeader
               fixedHeader
+              progressPending={schedulesLogs.isLoadingLogs}
               theme={theme === "dark" ? "solarized" : null}
             />
           </div>

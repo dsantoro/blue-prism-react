@@ -102,7 +102,7 @@ export const SkelTitle = styled.div`
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
   height: 21px;
-  width: 100%;
+  width: 205px;
 `;
 
 export const SkelBody = styled.div`
