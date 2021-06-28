@@ -15,10 +15,12 @@ const Card = React.memo(
     endDate,
     onClick,
     loading,
-    onButtonClick
+    onButtonClick,
+    active
   }) => {
     return (
-      <Container onClick={onClick}>
+      <Container onClick={onClick} active={active}>
+        <span>✅</span>
         <CardHeader>
           <span>
             <GrSchedules />

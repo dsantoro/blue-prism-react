@@ -5,8 +5,9 @@ const dark = {
     primary: "#006CB7",
     secondary: "#002b36",
     background: "#333333",
-    text: "#f5f5f5"
-  }
+    text: "#f5f5f5",
+    activeColor: "red",
+  },
 };
 
 export default dark;

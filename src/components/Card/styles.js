@@ -11,6 +11,15 @@ export const Container = styled.a`
   cursor: pointer;
   margin-right: 1rem;
   width: 300px;
+  position: relative;
+
+  > span {
+    display: ${({ active }) => (active ? "block" : "none")};
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    zoom: 0.7;
+  }
 
   @media (min-width: 600px) {
     margin-right: 1rem;

@@ -126,6 +126,7 @@ function App() {
                     return (
                       <Card
                         key={item.id}
+                        active={currentLog === item.id}
                         onClick={() => fetchScheduleLogs(item.id)}
                         onButtonClick={(e) => {
                           e.stopPropagation();

@@ -5,8 +5,9 @@ const light = {
     primary: "#006CB7",
     secondary: "",
     background: "#ffffff",
-    text: "#666666"
-  }
+    text: "#666666",
+    activeColor: "#0090f4",
+  },
 };
 
 export default light;

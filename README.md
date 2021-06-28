@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Blue Prism React Test
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Hosted Version
 
-In the project directory, you can run:
+[https://inspiring-meitner-7d0e58.netlify.app/](https://inspiring-meitner-7d0e58.netlify.app/)
 
-### `npm start`
+## GitHub files
+[https://github.com/dsantoro/blue-prism-react](https://github.com/dsantoro/blue-prism-react)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Tecnologies Used in this project
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+React, Styled Components, Data Table Component, React Icons
 
-### `npm test`
+### Missed points
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Missing retired/unretired behaviour
+2. A better approach handling errors
+3. Unit tests
+4. No TypeScript
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1 - I was not familiar with json-server so I could not figure out how to do a POST or PUT call to API in order to toggle between retired/unretired.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2 - I haven't touched a single line of React code since end of 2020 so I'm a little rusty and I failed in some approaches to keep app running even if backend returns some error.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3 - I have a shallow experience about unit tests. I have never worked with it before and this is a downside that I want to improve.
 
-### `npm run eject`
+4 - Same as 3.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Approaches
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I've tried used all the common approaches such like using context API, work with theming, functional componentes, etc.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Considerations
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Even with a possible negative feedback I want to say that I've enjoyed a lot work on this test. Working with react is quite a pleasure for me and I haven't worked with that for a while.
