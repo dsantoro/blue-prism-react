@@ -9,6 +9,7 @@ export const HeaderArea = styled.header`
   background-color: ${({ theme }) => theme.colors.background};
   transition: 0.3s background-color;
   will-change: background-color;
+  z-index: 10;
 `;
 
 export const InfoArea = styled.div`
