@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -6,6 +6,11 @@ export const Container = styled.div`
   justify-content: center;
   width: 100%;
   flex-direction: column;
+  padding: 1rem;
+
+  h2 {
+    margin-bottom: 0;
+  }
 `;
 
 export const Image = styled.img`

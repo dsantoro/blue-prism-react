@@ -22,74 +22,84 @@ import Header from "./components/Header";
 const columns = [
   {
     name: "ID",
-    selector: "id"
+    selector: "id",
   },
   {
     name: "Start Time",
     selector: "startTime",
-    sortable: true
+    sortable: true,
   },
   {
     name: "End Time",
     selector: "endTime",
-    sortable: true
+    sortable: true,
   },
   {
     name: "Status",
     selector: "status",
-    sortable: true
+    sortable: true,
   },
   {
     name: "Server Name",
-    selector: "serverName"
-  }
+    selector: "serverName",
+  },
 ];
 
 createTheme("solarized", {
   text: {
     primary: "#268bd2",
-    secondary: "#2aa198"
+    secondary: "#2aa198",
   },
   background: {
-    default: "#002b36"
-  }
+    default: "#002b36",
+  },
 });
 
 function App() {
   const [schedules, setSchedules] = useState({ isLoading: false, data: [] });
   const [schedulesLogs, setSchedulesLogs] = useState({
     isLoadingLogs: false,
-    dataLogs: []
+    dataLogs: [],
   });
   const [filter, setFilter] = useState("");
+  const [currentLog, setCurrentLog] = useState("");
 
   const {
-    appState: { theme }
+    appState: { theme },
   } = useContext(AppStateContext);
 
   useEffect(() => {
     setSchedules({ isLoading: true, data: [] });
     (async function fetchData() {
-      const data = await fetch(
-        `https://blue-prism-api.herokuapp.com/schedules?${filter}`
-      );
-      const resp = await data.json();
-      setSchedules({ isLoading: false, data: resp });
+      try {
+        const data = await fetch(
+          `https://blue-prism-api.herokuapp.com/schedules?${filter}`
+        );
+        const resp = await data.json();
+        setSchedules({ isLoading: false, data: resp });
+      } catch (e) {
+        console.log("Error: ", e);
+      }
     })();
   }, [filter]);
 
   const fetchScheduleLogs = async (logId) => {
     setSchedulesLogs({ isLoadingLogs: true, dataLogs: [] });
-    const data = await fetch(
-      `https://blue-prism-api.herokuapp.com/scheduleLogs?scheduleId=${logId}`
-    );
-    const resp = await data.json();
-    const formatedData = resp.map((item) => ({
-      ...item,
-      startTime: format(parseISO(item.startTime), "MM/dd/yyyy"),
-      endTime: format(parseISO(item.endTime), "MM/dd/yyyy")
-    }));
-    setSchedulesLogs({ isLoadingLogs: false, dataLogs: formatedData });
+    try {
+      const data = await fetch(
+        `https://blue-prism-api.herokuapp.com/scheduleLogs?scheduleId=${logId}`
+      );
+      const resp = await data.json();
+      const formatedData = resp.map((item) => ({
+        ...item,
+        startTime: format(parseISO(item.startTime), "MM/dd/yyyy"),
+        endTime: format(parseISO(item.endTime), "MM/dd/yyyy"),
+      }));
+      setSchedulesLogs({ isLoadingLogs: false, dataLogs: formatedData });
+      setCurrentLog(logId);
+    } catch (e) {
+      console.log("Error: ", e);
+    }
   };
 
   return (
@@ -108,25 +118,27 @@ function App() {
             />
 
             <CardWrapper>
-            {schedules.isLoading
-              ? [1, 2, 3].map((index) => <SkeletonCard key={index} />)
-              : schedules.data.map((item) => {
-                  return (
-                    <Card
-                      key={item.id}
-                      onClick={() => fetchScheduleLogs(item.id)}
-                      onButtonClick={(e) => {
-                        e.stopPropagation();
-                        console.log("API call to change this data!");
-                      }}
-                      {...item}
-                    />
-                  );
-                })}
+              {schedules.isLoading
+                ? Array.from({ length: 5 }).map((index) => (
+                    <SkeletonCard key={index} />
+                  ))
+                : schedules.data.map((item) => {
+                    return (
+                      <Card
+                        key={item.id}
+                        onClick={() => fetchScheduleLogs(item.id)}
+                        onButtonClick={(e) => {
+                          e.stopPropagation();
+                          alert("API call to change this data!");
+                        }}
+                        {...item}
+                      />
+                    );
+                  })}
             </CardWrapper>
-            
           </div>
           <div>
+            {currentLog && <h2>You are seeing schedule #{currentLog}</h2>}
             <DataTable
               columns={columns}
               data={schedulesLogs?.dataLogs}

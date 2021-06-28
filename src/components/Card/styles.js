@@ -47,7 +47,7 @@ export const CardHeader = styled.header`
   h5,
   h6 {
     color: ${({ theme }) => theme.colors.primary};
-    white-space: nowrap;
+    min-width: 205px;
     font-weight: 400;
     margin: 0;
   }

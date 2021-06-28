@@ -14,6 +14,7 @@ const Card = React.memo(
     startDate,
     endDate,
     onClick,
+    loading,
     onButtonClick
   }) => {
     return (
@@ -33,7 +34,7 @@ const Card = React.memo(
             <span>End: {format(new Date(endDate), "MM/dd/yyyy")}</span>
           </div>
           <object>
-            <Button loading={false} onClick={onButtonClick}>
+            <Button loading={loading} onClick={onButtonClick}>
               <span>{isRetired ? "Undo retire" : "retired"}</span>
             </Button>
           </object>
